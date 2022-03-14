@@ -4,14 +4,15 @@ on: push
 
 jobs:
   version:
-  steps:
-    - uses: paulhatch/semantic-version@v4.0.2
-      with:
-      tag_prefix: "v"
-      major_pattern: "(MAJOR)"
-      minor_pattern: "(MINOR)"
-      format: "${major}.${minor}.${patch}-prerelease${increment}"
-      change_path: "src/my-service"
-      namespace: my-service
-      short_tags: true
-      bump_each_commit: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: paulhatch/semantic-version@v4.0.2
+        with:
+        tag_prefix: "v"
+        major_pattern: "(MAJOR)"
+        minor_pattern: "(MINOR)"
+        format: "${major}.${minor}.${patch}-prerelease${increment}"
+        change_path: "src/my-service"
+        namespace: my-service
+        short_tags: true
+        bump_each_commit: false
